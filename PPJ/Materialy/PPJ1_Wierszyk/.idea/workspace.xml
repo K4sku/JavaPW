@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="750d1988-d9e4-4366-908c-4bc888b487ae" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1jJZsoogHTdqG22Tg9N6rw5qf5M" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="PPJ1_Wierszyk" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="750d1988-d9e4-4366-908c-4bc888b487ae" name="Default Changelist" comment="" />
+      <created>1603524363529</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603524363529</updated>
+      <workItem from="1603524364554" duration="183000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="716" y="406" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603524536179">
+      <screen x="0" y="0" width="2498" height="1440" />
+    </state>
+    <state x="716" y="406" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2498.1440/-1538.0.1538.1200@0.0.2498.1440" timestamp="1603524536179" />
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom" timestamp="1603524546722">
+      <screen x="0" y="0" width="2498" height="1440" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom/0.0.2498.1440/-1538.0.1538.1200@0.0.2498.1440" timestamp="1603524546722" />
+    <state width="1340" height="266" key="GridCell.Tab.0.center" timestamp="1603524546722">
+      <screen x="0" y="0" width="2498" height="1440" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.center/0.0.2498.1440/-1538.0.1538.1200@0.0.2498.1440" timestamp="1603524546722" />
+    <state width="1340" height="266" key="GridCell.Tab.0.left" timestamp="1603524546721">
+      <screen x="0" y="0" width="2498" height="1440" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.left/0.0.2498.1440/-1538.0.1538.1200@0.0.2498.1440" timestamp="1603524546721" />
+    <state width="1340" height="266" key="GridCell.Tab.0.right" timestamp="1603524546722">
+      <screen x="0" y="0" width="2498" height="1440" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.right/0.0.2498.1440/-1538.0.1538.1200@0.0.2498.1440" timestamp="1603524546722" />
+  </component>
+</project>
