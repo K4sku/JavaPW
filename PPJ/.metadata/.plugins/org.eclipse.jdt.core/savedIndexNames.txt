@@ -1,1 +1,0 @@
-INDEX VERSION 1.131+G:\JavaPW\PPJ\.metadata\.plugins\org.eclipse.jdt.core
