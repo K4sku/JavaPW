@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public abstract class Furniture extends Equipment {
 	
@@ -14,6 +15,13 @@ public abstract class Furniture extends Equipment {
 	public String toString() {
 		return super.toString() + 
 				"<-Furniture[tag: " + getTag() + "]";
+	}
+	
+	public boolean equals(Object otherObject) {
+		if (!super.equals(otherObject)) return false;
+		
+		Furniture other = (Furniture) otherObject;
+		return Objects.equals(tag, other.tag);
 	}
 
 	public String getTag() { return tag; }

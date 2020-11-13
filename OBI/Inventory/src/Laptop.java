@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Laptop extends Equipment{
 	private String make = "";
@@ -22,6 +23,13 @@ public class Laptop extends Equipment{
 	public String toString() {
 		return super.toString() + 
 				"<-Laptop[tag: " + getTag() + ", make: " + getMake() + ", model: " + getModel() +"]";
+	}
+	
+	public boolean equals(Object otherObject) {
+		if (!super.equals(otherObject)) return false;
+		
+		Laptop other = (Laptop) otherObject;
+		return Objects.equals(make, other.make) && Objects.equals(model, other.model)  && Objects.equals(tag, other.tag);
 	}
 
 	public String getMake() { return make; }

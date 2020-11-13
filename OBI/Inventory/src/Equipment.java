@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Objects;
 
 public abstract class Equipment {
 	
@@ -19,6 +20,15 @@ public abstract class Equipment {
 	
 	public String toString() {
 		return "Equipment[id: " + getId() + ", creationDate: " + getCreationDate() +", value: " + getValue() + ", notes: " + getNotes() + "]";
+	}
+	
+	public boolean equals(Object otherObject) {
+		if (null == otherObject) return false;
+		if (this == otherObject) return true;
+		if (getClass() != otherObject.getClass()) return false;
+		Equipment other = (Equipment) otherObject;
+		
+		return id == other.id && Objects.equals(creationDate, other.creationDate) && Objects.equals(notes, other.notes) && value == other.value;
 	}
 	
 	// getters and setters

@@ -1,4 +1,3 @@
-
 public class Desk extends Furniture {
 	
 	private int length;
@@ -19,6 +18,14 @@ public class Desk extends Furniture {
 	public String getDescription() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public boolean equals(Object otherObject) {
+		if (!super.equals(otherObject)) return false;
+		
+		Desk other = (Desk) otherObject;
+		return length == other.length && width == other.width;
 	}
 
 	
