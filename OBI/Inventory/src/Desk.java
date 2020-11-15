@@ -1,4 +1,4 @@
-public class Desk extends Furniture {
+public class Desk extends Furniture implements Comparable<Object> {
 	
 	private int length;
 	private int width;
@@ -11,13 +11,15 @@ public class Desk extends Furniture {
 
 	public String toString() {
 		return super.toString() + 
-				"<-Desk[length: " + getLength() + ", width: " + getWidth() + "]";
+				" <-Desk[length: " + getLength() + ", width: " + getWidth() + "]";
 	}
 	
 	@Override
 	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Tag: " +getTag() + 
+				"\nDesk size (L x W): " + getLength() + " x " + getWidth() + 
+				"\nAdd Date: " + getCreationDate() + 
+				"\nNotes: " + getNotes();
 	}
 	
 	@Override
@@ -26,6 +28,12 @@ public class Desk extends Furniture {
 		
 		Desk other = (Desk) otherObject;
 		return length == other.length && width == other.width;
+	}
+	
+	@Override
+	public int compareTo(Object otherObject) {
+		Desk other = (Desk) otherObject;
+		return Integer.compare(length, other.length);
 	}
 
 	

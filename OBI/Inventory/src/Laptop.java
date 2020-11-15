@@ -14,15 +14,15 @@ public class Laptop extends Equipment{
 	}
 	
 	public String getDescription() {
-		return "Tag: " +getTag() + "\n"
-				+ "Laptop: " + getMake() + " " + getModel() + "\n"
-						+ "Add Date: " + getCreationDate() + "\n"
-								+ "Notes: " + getNotes();
+		return "Tag: " +getTag() + 
+				"\nLaptop: " + getMake() + " " + getModel() + 
+				"\nAdd Date: " + getCreationDate() + 
+				"\nNotes: " + getNotes();
     }
 	
 	public String toString() {
 		return super.toString() + 
-				"<-Laptop[tag: " + getTag() + ", make: " + getMake() + ", model: " + getModel() +"]";
+				" <-Laptop[tag: " + getTag() + ", make: " + getMake() + ", model: " + getModel() +"]";
 	}
 	
 	public boolean equals(Object otherObject) {
@@ -44,3 +44,4 @@ public class Laptop extends Equipment{
 	    nextTag++;
 	}
 }
+//TODO comparable 

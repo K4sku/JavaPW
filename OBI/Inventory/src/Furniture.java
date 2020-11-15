@@ -1,11 +1,12 @@
 import java.util.Objects;
 
-public abstract class Furniture extends Equipment {
+public abstract class Furniture extends Equipment implements Comparable<Object>{
 	
 	private String tag = "";
 	private static int nextTag = 1;
 	
 	public abstract String getDescription();
+	public abstract int compareTo();
 
 	public Furniture(String notes, double value) {
 		super(notes, value);
@@ -14,7 +15,7 @@ public abstract class Furniture extends Equipment {
 	
 	public String toString() {
 		return super.toString() + 
-				"<-Furniture[tag: " + getTag() + "]";
+				" <-Furniture[tag: " + getTag() + "]";
 	}
 	
 	public boolean equals(Object otherObject) {
