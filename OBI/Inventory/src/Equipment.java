@@ -5,6 +5,7 @@ public abstract class Equipment {
 	
 	public abstract String getDescription();
 	abstract void setTag();
+	abstract String getTag();
 	
 	private static int nextId = 1;
 	private int id;
@@ -31,6 +32,7 @@ public abstract class Equipment {
 		return id == other.id && Objects.equals(creationDate, other.creationDate) && Objects.equals(notes, other.notes) && value == other.value;
 	}
 	
+	
 	// getters and setters
 	public String getNotes() { return notes;	}
 	public void setNotes(String notes) { this.notes = notes; }
@@ -47,6 +49,8 @@ public abstract class Equipment {
 	public LocalDate getCreationDate() { return creationDate; }
 	public void setCreationDate(LocalDate creationDate) { this.creationDate = creationDate;	}
 
+	
+	
 }
 
 
