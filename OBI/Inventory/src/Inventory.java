@@ -1,5 +1,3 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -52,35 +50,13 @@ public class Inventory {
 		System.out.println(furniture.get(0).compareTo(furniture.get(1)));
 		
 		//timer test
-		var listener = new TimeDepreciation(items[0]);
+		var listener = new Equipment.TimeDepreciation(items[2]);
 		Timer t = new Timer(1000, listener);
 		t.start();
 		
 		JOptionPane.showMessageDialog(null, "Quit program?");
 		System.exit(0);
 	
-	}
-	
-	static class TimeDepreciation implements ActionListener {
-		
-		private Equipment anItem;
-		
-		public TimeDepreciation(Equipment equipment) {
-			anItem = equipment;
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			devaluateOverTime(anItem);
-			System.out.println("Some time has passed. " + anItem.getTag() + " lost value, and now is only worth: " + anItem.getValue());
-			
-		}
-		
-		private void devaluateOverTime(Equipment anItem) {
-			if (anItem.getValue() > 0) 
-				anItem.setValue(Math.round(anItem.getValue()*0.95 * 100.0) / 100.0);
-		}
-
 	}
 
 }
