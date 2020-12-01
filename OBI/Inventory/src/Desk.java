@@ -35,7 +35,12 @@ public class Desk extends Furniture implements Comparable<Object> {
 		Desk other = (Desk) otherObject;
 		return Integer.compare(length, other.length);
 	}
-
+	
+	@Override
+	public int compareTo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	//getters and setters
 	public double getLength() {	return length; }
@@ -43,4 +48,6 @@ public class Desk extends Furniture implements Comparable<Object> {
 	
 	public double getWidth() { return width; }
 	public void setWidth(int width) { this.width = width; }
+
+
 }

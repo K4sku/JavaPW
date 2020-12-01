@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-//import java.util.Objects;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class Inventory {
 
@@ -45,9 +46,17 @@ public class Inventory {
 			System.out.println(f.toString());
 		}
 		
+		//comparable test
 		System.out.println(furniture.get(0).compareTo(furniture.get(1)));
 		
+		//timer test
+		var listener = new Equipment.TimeDepreciation(items[2]);
+		Timer t = new Timer(1000, listener);
+		t.start();
+		
+		JOptionPane.showMessageDialog(null, "Quit program?");
+		System.exit(0);
 	
 	}
-	
+
 }

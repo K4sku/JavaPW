@@ -35,11 +35,21 @@ public class Chair extends Furniture implements Comparable<Object> {
 	}
 	
 	@Override
-	public int compareTo(Object otherObject) {
+	public int compareTo() {
+		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public int compareTo(Object otherObject) {
+		Chair other = (Chair) otherObject;
+		return Double.compare(getValue(), other.getValue());
+
 	}
 	
 	public boolean isOnWheels() { return onWheels; }
 	public void setOnWheels(boolean onWheels) {	this.onWheels = onWheels; }
+
+
 	
 }

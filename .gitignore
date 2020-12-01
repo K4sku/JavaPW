@@ -36,3 +36,5 @@ local.properties
 *.launch
 
 a
+OBI/Inventory/.idea/vcs.xml
+OBI/Inventory/.idea/modules.xml
