@@ -19,19 +19,20 @@ public class MineSweeperPanel extends JPanel {
     JFrame defeatPane;
 
     //load game icons
-    private final ImageIcon coveredIcon = new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\covered.gif");
-    private final ImageIcon uncoveredIcon = new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\uncovered.gif");
-    private final ImageIcon flagIcon = new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\flag.gif");
-    private final ImageIcon bombIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\bomb.gif");
-    private final ImageIcon redBombIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\redBomb.gif");
-    private final ImageIcon oneIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\one.gif");
-    private final ImageIcon twoIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\two.gif");
-    private final ImageIcon threeIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\three.gif");
-    private final ImageIcon fourIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\four.gif");
-    private final ImageIcon fiveIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\five.gif");
-    private final ImageIcon sixIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\six.gif");
-    private final ImageIcon sevenIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\seven.gif");
-    private final ImageIcon eightIcon =  new ImageIcon("G:\\JavaPW\\ZDA\\src\\com\\company\\icons\\eight.gif");
+
+    private final ImageIcon coveredIcon = new ImageIcon(".\\src\\com\\company\\icons\\covered.gif");
+    private final ImageIcon uncoveredIcon = new ImageIcon(".\\src\\com\\company\\icons\\uncovered.gif");
+    private final ImageIcon flagIcon = new ImageIcon(".\\src\\com\\company\\icons\\flag.gif");
+    private final ImageIcon bombIcon =  new ImageIcon(".\\src\\com\\company\\icons\\bomb.gif");
+    private final ImageIcon redBombIcon =  new ImageIcon(".\\src\\com\\company\\icons\\redBomb.gif");
+    private final ImageIcon oneIcon =  new ImageIcon(".\\src\\com\\company\\icons\\one.gif");
+    private final ImageIcon twoIcon =  new ImageIcon(".\\src\\com\\company\\icons\\two.gif");
+    private final ImageIcon threeIcon =  new ImageIcon(".\\src\\com\\company\\icons\\three.gif");
+    private final ImageIcon fourIcon =  new ImageIcon(".\\src\\com\\company\\icons\\four.gif");
+    private final ImageIcon fiveIcon =  new ImageIcon(".\\src\\com\\company\\icons\\five.gif");
+    private final ImageIcon sixIcon =  new ImageIcon(".\\src\\com\\company\\icons\\six.gif");
+    private final ImageIcon sevenIcon =  new ImageIcon(".\\src\\com\\company\\icons\\seven.gif");
+    private final ImageIcon eightIcon =  new ImageIcon(".\\src\\com\\company\\icons\\eight.gif");
 
 
     public MineSweeperPanel() {
@@ -47,6 +48,7 @@ public class MineSweeperPanel extends JPanel {
         minefield.setLayout(new GridLayout(minefieldRows, minefieldColumns));
         fillMinefileld();
         add(minefield, BorderLayout.CENTER);
+
 
     }
 
