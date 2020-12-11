@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 
 public class MineSweeperPanel extends JPanel {
 
+    private JPanel topBar;
     private JLabel mineLabel;
+    private JButton optionMenuButton;
 
     private JPanel minefield;
     private int minefieldRows = 9;
@@ -35,13 +37,25 @@ public class MineSweeperPanel extends JPanel {
     private final ImageIcon eightIcon =  new ImageIcon(".\\src\\com\\company\\icons\\eight.gif");
 
 
-    public MineSweeperPanel() {
+    public MineSweeperPanel(int minefieldRows, int minefieldColumns, int mines) {
         setLayout(new BorderLayout());
 
-        // add mine display
+        // add top bar with options button and mine count
         mineLabel = new JLabel(String.valueOf(mines), JLabel.CENTER);
         mineLabel.setEnabled(true);
-        add(mineLabel, BorderLayout.NORTH);
+
+        optionMenuButton = new JButton("Game Options");
+
+        optionMenuButton.setEnabled(true);
+
+        topBar = new JPanel();
+        topBar.add(optionMenuButton);
+        topBar.add(Box.createHorizontalGlue());
+        topBar.add(mineLabel);
+        topBar.add(Box.createHorizontalGlue());
+        topBar.setLayout(new BoxLayout(topBar, BoxLayout.LINE_AXIS));
+
+        add(topBar, BorderLayout.NORTH);
 
         // add minefield in a grid
         minefield = new JPanel();

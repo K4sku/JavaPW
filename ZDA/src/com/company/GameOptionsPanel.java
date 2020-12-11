@@ -9,7 +9,7 @@ public class GameOptionsPanel extends JPanel {
     private GridBagConstraints gbc;
 
     public GameOptionsPanel(JFrame frame) {
-        frame.setSize(new Dimension(123,1111111111));
+        frame.setSize(new Dimension(250,280));
         frame.repaint();
 
         gameOptionsPanel = new JPanel();
@@ -146,5 +146,9 @@ public class GameOptionsPanel extends JPanel {
         gbc.gridy = 6;
         gbc.gridwidth = 2;
         add(newGame,gbc);
+
+//        newGame.addActionListener(new MineSweeperFrame.startNewGame());
+
+
     }
 }
