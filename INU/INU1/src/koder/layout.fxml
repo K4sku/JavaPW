@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="250.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="koder.Controller">
+   <children>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="281.0" prefWidth="513.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" layoutX="51.0" layoutY="126.0" style="&#10;" text="Wynik operacji:" textAlignment="CENTER" wrapText="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField id="text1" fx:id="text1" layoutX="51.0" layoutY="64.0" />
+            <TextField id="text2" fx:id="text2" layoutX="51.0" layoutY="153.0" />
+            <Label alignment="CENTER" layoutX="51.0" layoutY="37.0" style="&#10;" text="Źródło" textAlignment="CENTER" wrapText="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="343.0" layoutY="51.0" style="&#10;" text="Operacja" textAlignment="CENTER" wrapText="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="radioKod" layoutX="339.0" layoutY="90.0" mnemonicParsing="false" selected="true" text="kodowanie">
+               <toggleGroup>
+                  <ToggleGroup fx:id="operationTG" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioDekod" layoutX="339.0" layoutY="122.0" mnemonicParsing="false" text="dekodowanie" toggleGroup="$operationTG" />
+            <Button layoutX="148.0" layoutY="95.0" mnemonicParsing="false" onAction="#copyAction" text="Kopiuj" />
+            <Button layoutX="51.0" layoutY="190.0" mnemonicParsing="false" onAction="#executeAction" text="Wykonaj" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

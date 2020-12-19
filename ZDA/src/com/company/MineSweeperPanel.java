@@ -35,6 +35,7 @@ public class MineSweeperPanel extends JPanel {
     private final ImageIcon eightIcon =  new ImageIcon(".\\src\\com\\company\\icons\\eight.gif");
 
 
+<<<<<<< Updated upstream
     public MineSweeperPanel() {
         setLayout(new BorderLayout());
 
@@ -43,12 +44,14 @@ public class MineSweeperPanel extends JPanel {
         mineLabel.setEnabled(true);
         add(mineLabel, BorderLayout.NORTH);
 
+=======
+    public MineSweeperPanel(int minefieldRows, int minefieldColumns, int mines) {
+>>>>>>> Stashed changes
         // add minefield in a grid
         minefield = new JPanel();
         minefield.setLayout(new GridLayout(minefieldRows, minefieldColumns));
         fillMinefileld();
         add(minefield, BorderLayout.CENTER);
-
 
     }
 
@@ -149,10 +152,8 @@ public class MineSweeperPanel extends JPanel {
 //                sourceField.setEnabled(false);
             }
 
-
             //check win condition
 //            if (disabledFields == nonMineMfields) win;
-
 //                sourceField.setEnabled(false);
 //            sourceField.setMine(true);
 //            sourceField.setIcon(bombIcon);
