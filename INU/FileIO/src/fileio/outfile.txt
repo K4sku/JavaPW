@@ -1,0 +1,5 @@
+Tomasz:Smith:1
+Alicja:Dymerska:2
+Anna:Szmit:3
+Franciszek:Kurpiowski:4
+Aneta:Lejka:5
