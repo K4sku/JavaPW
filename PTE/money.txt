@@ -1,0 +1,19 @@
+Class Money {
+ //...
+ 	public Money multiplyCurrency(int k) {
+		return new Money(amount() * k, currency());
+	}
+}
+
+public class MoneyTest2 {
+	//...
+	@Test
+	public void testMultiply() {
+		Money expected = new Money(24, "CHF");
+		assertEquals(m12CHF.multiplyCurrency(2), expected);
+		assertEquals(m12CHF.multiplyCurrency(0), new Money(0, "CHF"));
+		assertTrue(!m12CHF.multiplyCurrency(3).equals(expected));
+		
+	}
+}
+	
