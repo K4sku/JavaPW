@@ -117,7 +117,6 @@ public class StackTests {
 		s.push(2);
 		s.clear();
 		assertTrue(s.isEmpty());
-		
 	}
 	
 	// TODO configurable Stack capacity
