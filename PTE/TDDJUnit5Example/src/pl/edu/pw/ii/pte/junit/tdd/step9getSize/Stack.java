@@ -1,6 +1,7 @@
 package pl.edu.pw.ii.pte.junit.tdd.step9getSize;
 
 import java.nio.BufferOverflowException;
+import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class Stack {
@@ -32,6 +33,8 @@ public class Stack {
 	}
 	
 	public void clear() {
+		Arrays.fill(contents, 0);
+		size = 0;
 		
 	}
 }

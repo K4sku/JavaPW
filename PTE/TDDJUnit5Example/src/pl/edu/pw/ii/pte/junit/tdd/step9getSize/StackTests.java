@@ -107,6 +107,19 @@ public class StackTests {
 		assertEquals(1, s.getSize());
 	}
 	
+	@Test
+	public void stackIsEmptyAfterClearing() {
+		Stack s = new Stack();
+		assertTrue(s.isEmpty());
+		s.clear();
+		assertTrue(s.isEmpty());
+		s.push(1);
+		s.push(2);
+		s.clear();
+		assertTrue(s.isEmpty());
+		
+	}
+	
 	// TODO configurable Stack capacity
-	// TODO Stack.clear()
+
 }
