@@ -3,21 +3,21 @@ package pl.edu.pw.ii.pte.junit.moneyAssigment;
 import java.util.HashMap;
 
 class Money {
-	private int fAmount;
+	private long fAmount;
 	private String fCurrency;
 	private static HashMap<String, Integer> exchangeRate = new HashMap<>(); 
 
-	public Money(int amount, String currency) {
-		fAmount = amount;
+	public Money(long amount, String currency) {
+		fAmount = amount; //money is stored in notation: 12345 = 1.2345
 		fCurrency = currency;
 		
-		exchangeRate.put("PLN", 10000);
-		exchangeRate.put("USD", 37142);
-		exchangeRate.put("EUR", 45272);
-		exchangeRate.put("CHF", 41855);
+		exchangeRate.put("PLN", 1_0000); 
+		exchangeRate.put("USD", 3_7142);
+		exchangeRate.put("EUR", 4_5272);
+		exchangeRate.put("CHF", 4_1855);
 	}
 
-	public int amount() {
+	public long amount() {
 		return fAmount;
 	}
 
@@ -26,7 +26,7 @@ class Money {
 	}
 	
 	public Money addAnyCurrency(Money m) {
-		var val = (fAmount * exchangeRate.get(fCurrency) + m.fAmount * m.exchangeRate.get(m.fCurrency)) / exchangeRate.get(fCurrency);
+		var val = (fAmount * Money.exchangeRate.get(fCurrency) + m.fAmount * Money.exchangeRate.get(m.fCurrency)) / Money.exchangeRate.get(fCurrency);
 		return new Money(val, fCurrency);
 	}
 
@@ -38,11 +38,21 @@ class Money {
 	public boolean equals(Object anObject) {
 		if (anObject instanceof Money) {
 			Money a = (Money) anObject;
-
-			return a.currency().equals(currency()) && amount() == a.amount();
+			if (a.currency().equals(currency()) && amount() == a.amount()) return true;
+			if (!a.currency().equals(currency())) {
+				return (a.amount() * Money.exchangeRate.get(a.fCurrency) == amount() * Money.exchangeRate.get(fCurrency));
+			}
 		}
 		return false;
 
+	}
+	
+	public int compareTo(Object anObject) {
+		Money a = (Money) anObject;
+		if (equals(a)) return 0;
+		else if ((a.amount() * Money.exchangeRate.get(a.fCurrency) > amount() * Money.exchangeRate.get(fCurrency))) return 1;
+		else if ((a.amount() * Money.exchangeRate.get(a.fCurrency) < amount() * Money.exchangeRate.get(fCurrency)))	return -1;
+		return 0;
 	}
 	
 	public Money multiplyCurrency(int k) {
