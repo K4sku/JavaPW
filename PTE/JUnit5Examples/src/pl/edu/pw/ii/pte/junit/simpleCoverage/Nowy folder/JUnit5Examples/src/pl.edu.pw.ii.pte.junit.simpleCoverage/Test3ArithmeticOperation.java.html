@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Test3ArithmeticOperation.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Test 1 i Test3</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.simpleCoverage</a> &gt; <span class="el_source">Test3ArithmeticOperation.java</span></div><h1>Test3ArithmeticOperation.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.simpleCoverage;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+
+<span class="fc" id="L8">public class Test3ArithmeticOperation {</span>
+
+	@Test
+	public void multiplyCorrect_zero() {
+<span class="fc" id="L12">		ArithmeticOperation a = new ArithmeticOperation();</span>
+<span class="fc" id="L13">		assertEquals(0 * 0, a.multiplyCorrect(0, 0));</span>
+<span class="fc" id="L14">	}</span>
+
+	@Test
+	public void multiplyCorrect_three() {
+<span class="fc" id="L18">		ArithmeticOperation a = new ArithmeticOperation();</span>
+<span class="fc" id="L19">		assertEquals(3 * 3, a.multiplyCorrect(3, 3));</span>
+<span class="fc" id="L20">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Test 1 i Test3</div></body></html>

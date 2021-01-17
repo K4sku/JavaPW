@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestSortClass1.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Test 1 i Test3</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.sorterPostCondition</a> &gt; <span class="el_source">TestSortClass1.java</span></div><h1>TestSortClass1.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.sorterPostCondition;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
+
+
+<span class="nc" id="L7">public abstract class TestSortClass1 {</span>
+<span class="nc" id="L8">	final int NMAX = 4;</span>
+<span class="nc" id="L9">	int[] inputdata = new int[NMAX + 1];</span>
+
+	protected abstract AbstractSort createInstance();
+
+	// PostCondition1 Table is sorted
+	@Test
+	public void postCondition1() {
+<span class="nc" id="L16">		AbstractSort s = createInstance();</span>
+<span class="nc" id="L17">		s.fill_in(inputdata, NMAX);</span>
+
+<span class="nc" id="L19">		s.sort(inputdata, NMAX);</span>
+
+<span class="nc bnc" id="L21" title="All 2 branches missed.">		for (int k = 0; k &lt; NMAX; k++) {</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">			assertTrue(inputdata[k] &lt;= inputdata[k + 1], &quot;table not sorted&quot;);</span>
+		}
+<span class="nc" id="L24">	}</span>
+
+<span class="nc" id="L26">	public static class NoOpSortTest extends TestSortClass1 {</span>
+		@Override
+		protected AbstractSort createInstance() {
+<span class="nc" id="L29">			return new NoOpSort();</span>
+		}
+	}
+	
+<span class="nc" id="L33">	public static class AscendingFillingSortTest extends TestSortClass1 {</span>
+		@Override
+		protected AbstractSort createInstance() {
+<span class="nc" id="L36">			return new AscendingFillingSort();</span>
+		}
+	}
+	
+<span class="nc" id="L40">	public static class FirstItemFillingSortTest extends TestSortClass1 {</span>
+		@Override
+		protected AbstractSort createInstance() {
+<span class="nc" id="L43">			return new FirstItemFillingSort();</span>
+		}
+	}
+	
+<span class="nc" id="L47">	public static class RealSortTest extends TestSortClass1 {</span>
+		@Override
+		protected AbstractSort createInstance() {
+<span class="nc" id="L50">			return new RealSort();</span>
+		}
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Test 1 i Test3</div></body></html>

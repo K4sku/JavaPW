@@ -24,11 +24,13 @@ public class Main extends Application {
 						Main.class.getResource("/view/MainWindowView.fxml")
 						);
 			AnchorPane pane = loader.load();
-			primaryStage.setMinWidth(400.0);
-			primaryStage.setMinHeight(300.0);
+			primaryStage.setMinWidth(500.0);
+			primaryStage.setMinHeight(600.0);
 			Scene scene = new Scene(pane);
-			MainWindowController mainWindwoController = loader.getController();
-			mainWindwoController.setMain(this);
+			MainWindowController mainWindowController = loader.getController();
+			mainWindowController.setMain(this);
+			mainWindowController.setPriamryStage(primaryStage);
+			mainWindowController.setTable();
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (IOException e) {

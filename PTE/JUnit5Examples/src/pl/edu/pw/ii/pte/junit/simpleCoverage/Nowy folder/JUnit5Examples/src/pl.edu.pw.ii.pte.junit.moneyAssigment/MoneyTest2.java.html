@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>MoneyTest2.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Test 1 i Test3</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.moneyAssigment</a> &gt; <span class="el_source">MoneyTest2.java</span></div><h1>MoneyTest2.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.moneyAssigment;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+<span class="nc" id="L11">public class MoneyTest2 {</span>
+	private Money m12CHF;
+	private Money m14CHF;
+	private Money m10PLN;
+	private Money m5EUR;
+	private Money m20USD;
+
+	@BeforeEach
+	public void setUp() throws Exception {
+<span class="nc" id="L20">		m12CHF = new Money(12_0000, &quot;CHF&quot;); // 12 CHF</span>
+<span class="nc" id="L21">		m14CHF = new Money(14_0000, &quot;CHF&quot;); // 14 CHF</span>
+<span class="nc" id="L22">		m10PLN = new Money(10_0000, &quot;PLN&quot;); // 10 PLN</span>
+<span class="nc" id="L23">		m5EUR = new Money(5_0000, &quot;EUR&quot;); // 5 EUR</span>
+<span class="nc" id="L24">		m20USD = new Money(20_0000, &quot;USD&quot;); // 20 USD</span>
+<span class="nc" id="L25">	}</span>
+
+	@AfterEach
+	public void tearDown() throws Exception {
+<span class="nc" id="L29">	}</span>
+
+	@Test
+	public void testSimpleAdd() {
+<span class="nc" id="L33">		Money expected = new Money(26_0000L, &quot;CHF&quot;); //26 CHF</span>
+<span class="nc" id="L34">		Money result = m12CHF.add(m14CHF); </span>
+<span class="nc" id="L35">		assertTrue(expected.equals(result)); </span>
+<span class="nc" id="L36">	}</span>
+	
+	@Test
+	public void testSimpleAddWhenMismachedCurrency() {
+<span class="nc" id="L40">		Money expected = new Money(21_4083L, &quot;EUR&quot;); // 21.4083 EUR</span>
+<span class="nc" id="L41">		Money result = m5EUR.add(m20USD); </span>
+<span class="nc" id="L42">		assertTrue(expected.equals(result)); </span>
+<span class="nc" id="L43">	}</span>
+
+	@Test
+	public void testEquals() {
+<span class="nc bnc" id="L47" title="All 2 branches missed.">		assertTrue(!m12CHF.equals(null));</span>
+<span class="nc" id="L48">		assertEquals(m12CHF, m12CHF);</span>
+<span class="nc" id="L49">		assertEquals(m12CHF, new Money(12_0000L, &quot;CHF&quot;));</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">		assertTrue(!m12CHF.equals(m14CHF));</span>
+<span class="nc" id="L51">	}</span>
+	
+	@Test
+	public void testEqualsValueOfDifferentCurrencies() {
+<span class="nc" id="L55">		assertEquals(m12CHF, new Money(50_2260, &quot;PLN&quot;));</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		assertTrue(!m12CHF.equals(m5EUR));</span>
+<span class="nc" id="L57">	}</span>
+	
+	@Test
+	public void testMultiply() {
+<span class="nc" id="L61">		Money expected = new Money(24_0000L, &quot;CHF&quot;);</span>
+<span class="nc" id="L62">		assertEquals(m12CHF.multiplyCurrency(2), expected);</span>
+<span class="nc" id="L63">		assertEquals(m12CHF.multiplyCurrency(0), new Money(0L, &quot;CHF&quot;));</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">		assertTrue(!m12CHF.multiplyCurrency(3).equals(expected));</span>
+		
+<span class="nc" id="L66">	}</span>
+	
+	@Test
+	public void testAnyCurrencyAdd() {
+<span class="nc" id="L70">		Money expected = new Money(32_6360L, &quot;PLN&quot;); //32,6360 PLN</span>
+<span class="nc" id="L71">		Money result = m10PLN.addAnyCurrency(m5EUR);</span>
+<span class="nc" id="L72">		assertTrue(expected.equals(result)); </span>
+<span class="nc" id="L73">	}</span>
+	
+	@Test
+	public void testCompareTo() {
+<span class="nc" id="L77">		assertEquals(m10PLN.compareTo(new Money(10_0000, &quot;PLN&quot;)), 0);</span>
+<span class="nc" id="L78">		assertEquals(m10PLN.compareTo(new Money(20_0000, &quot;PLN&quot;)), 1);</span>
+<span class="nc" id="L79">		assertEquals(m10PLN.compareTo(new Money(1_0000, &quot;PLN&quot;)), -1);</span>
+<span class="nc" id="L80">		assertEquals(m10PLN.compareTo(new Money(0, &quot;PLN&quot;)), -1);</span>
+<span class="nc" id="L81">		assertEquals(m10PLN.compareTo(new Money(-10, &quot;PLN&quot;)), -1);</span>
+<span class="nc" id="L82">	}</span>
+	
+	@Test
+	public void testCompareToMixedCurrencies() {
+<span class="nc" id="L86">		assertEquals(m5EUR.compareTo(new Money(22_6360, &quot;PLN&quot;)), 0);</span>
+<span class="nc" id="L87">		assertEquals(m5EUR.compareTo(m20USD), 1);</span>
+<span class="nc" id="L88">		assertEquals(m5EUR.compareTo(new Money(1_0000, &quot;USD&quot;)), -1);</span>
+<span class="nc" id="L89">		assertEquals(m5EUR.compareTo(new Money(0, &quot;USD&quot;)), -1);</span>
+<span class="nc" id="L90">		assertEquals(m5EUR.compareTo(new Money(-10, &quot;PLN&quot;)), -1);</span>
+<span class="nc" id="L91">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Test 1 i Test3</div></body></html>
