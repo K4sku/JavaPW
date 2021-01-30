@@ -90,6 +90,12 @@ public class MainWindowController {
 				new PropertyValueFactory<Person, String>("roomNo")
 		);
 
+		roomNoField.focusedProperty().addListener(
+				(ov, oldVal, newVal)-> {
+				if (!newVal) verifyThreeDigits();
+				}
+		);
+
 
 	}
 
@@ -185,6 +191,17 @@ public class MainWindowController {
 
 		}
 	}
+
+	@FXML
+	void verifyThreeDigits() {
+		try {
+			var roomNo = Integer.valueOf(roomNoField.getText());
+			roomNoField.setText(String.format("%03d", roomNo));
+		} catch (NumberFormatException e) {
+
+		}
+	}
+
 
 	private void writeToFile(ObservableList<Person> personList, File saveReportFile) throws IOException {
 		FileWriter writer = new FileWriter(saveReportFile);

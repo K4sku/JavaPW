@@ -69,7 +69,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="roomNoField" layoutX="10.0" layoutY="85.0">
+            <TextField fx:id="roomNoField" layoutX="10.0" layoutY="85.0" onInputMethodTextChanged="#verifyThreeDigits">
                <opaqueInsets>
                   <Insets bottom="10.0" />
                </opaqueInsets>
