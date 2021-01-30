@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background" stylesheets="@application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
+   <children>
+      <TableView fx:id="tableView" layoutX="150.0" layoutY="314.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="15.0">
+        <columns>
+          <TableColumn fx:id="firstNameColumn" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" text="Imię" />
+          <TableColumn fx:id="lastNameColumn" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" text="Nazwisko" />
+            <TableColumn fx:id="roomNoColumn" maxWidth="80.0" minWidth="80.0" text="Pokój" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="loadButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#importFile" prefHeight="25.0" prefWidth="68.0" text="Wczytaj" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <Button fx:id="saveButton" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onAction="#saveFile" prefHeight="25.0" prefWidth="68.0" text="Zapisz" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="55.0" />
+      <Button fx:id="addButton" layoutX="15.0" layoutY="93.0" mnemonicParsing="false" onAction="#addEmployee" prefHeight="25.0" prefWidth="68.0" text="Dodaj" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="110.0" />
+      <Button fx:id="deleteButton" layoutX="15.0" layoutY="153.0" mnemonicParsing="false" onAction="#deleteEmployee" prefHeight="25.0" prefWidth="68.0" text="Usuń" AnchorPane.topAnchor="150.0" />
+      <Button fx:id="changeButton" layoutX="15.0" layoutY="189.0" mnemonicParsing="false" onAction="#changeEmployee" prefHeight="25.0" prefWidth="68.0" text="Zmień" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="190.0" />
+      <Button fx:id="reportButton" layoutX="15.0" layoutY="236.0" mnemonicParsing="false" onAction="#saveReport" prefHeight="25.0" prefWidth="68.0" text="Raport" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="245.0" />
+      <VBox layoutX="384.0" layoutY="15.0" prefWidth="130.0" AnchorPane.leftAnchor="445.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Label text="Imię">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstNameField">
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="10.0" layoutY="10.0" text="Nazwisko">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="lastNameField" layoutX="10.0" layoutY="30.0">
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="10.0" layoutY="65.0" text="Nr pokoju">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="roomNoField" layoutX="10.0" layoutY="85.0" onInputMethodTextChanged="#verifyThreeDigits">
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </TextField>
+         </children>
+      </VBox>
+      <VBox layoutX="610.0" layoutY="28.0" prefWidth="130.0" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <Label text="Godz. rozpoczęcia pracy" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="startHoursField">
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="10.0" layoutY="10.0" text="Godz. zakończenia pracy" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="endHoursField" layoutX="10.0" layoutY="30.0">
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </TextField>
+         </children>
+      </VBox>
+      <StackPane prefHeight="352.0" prefWidth="200.0" styleClass="canvasContainer" stylesheets="@application.css" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="445.0" AnchorPane.rightAnchor="15.0">
+         <children>
+            <Canvas id="canvas" fx:id="planCanvas" height="350.0" width="340.0" />
+            <Label fx:id="floorLabel">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <Label layoutX="445.0" layoutY="195.0" text="Plan biura" wrapText="true" AnchorPane.bottomAnchor="370.0" AnchorPane.leftAnchor="445.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
