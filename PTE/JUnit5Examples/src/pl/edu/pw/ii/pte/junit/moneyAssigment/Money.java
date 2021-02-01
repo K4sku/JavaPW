@@ -51,8 +51,8 @@ class Money {
 		Money a = (Money) anObject;
 		if (equals(a)) return 0;
 		else if ((a.amount() * Money.exchangeRate.get(a.fCurrency) > amount() * Money.exchangeRate.get(fCurrency))) return 1;
-		else if ((a.amount() * Money.exchangeRate.get(a.fCurrency) < amount() * Money.exchangeRate.get(fCurrency)))	return -1;
-		return 0;
+		else return -1;
+
 	}
 	
 	public Money multiplyCurrency(int k) {

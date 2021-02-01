@@ -1,22 +1,31 @@
 package pl.edu.pw.ii.pte.junit.tdd.step9getSize;
 
-import java.nio.BufferOverflowException;
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public class Stack {
 
-	public static final int MAXIMUM_CAPACITY = 10;
+	private int capacity;
 	private int size = 0;
-	private int[] contents = new int[MAXIMUM_CAPACITY];
+	private int[] contents;
+	
+	public Stack() {
+		capacity = 0;
+		contents = new int[capacity];
+	}
+	
+	public Stack(int capacity) {
+		this.capacity = capacity;
+		contents = new int[this.capacity];
+	}
 
 	public boolean isEmpty() {
 		return size == 0;
 	}
 
 	public void push(int i) {
-		if (size == MAXIMUM_CAPACITY) {
-			throw new BufferOverflowException();
+		if (size == capacity) {
+			increaseCapacity();
 		}
 		contents[size++] = i;
 	}
@@ -37,4 +46,23 @@ public class Stack {
 		size = 0;
 		
 	}
+	
+	public int getCapacity() {
+		return capacity;
+	}
+	
+	public void increaseCapacity() {
+		capacity++;
+		int[] newContents = new int[capacity];
+		System.arraycopy(contents, 0, newContents, 0, contents.length);
+		contents = newContents;
+	}
+	
+	public void increaseCapacity(int i) {
+		capacity = capacity + i;
+		int[] newContents = new int[capacity];
+		System.arraycopy(contents, 0, newContents, 0, contents.length);
+		contents = newContents;
+	}
+	
 }

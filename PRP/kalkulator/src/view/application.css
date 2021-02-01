@@ -1,0 +1,31 @@
+.display {
+	-fx-background-color: gray;
+	-fx-font-weight: bold;
+	-fx-font-size: 26;
+	-fx-text-fill: white;
+}
+
+.grid {
+	
+}
+
+.controlButton {
+	-fx-background-color: orange;
+	-fx-font-size: 20;
+	-fx-border-style: solid;
+	-fx-border-size: 1;
+
+}
+
+.operationButton {
+	-fx-background-color: green;
+	-fx-font-size: 20;
+	-fx-border-style: solid;
+	-fx-border-size: 1;
+
+}
+
+.numberButton{
+	-fx-border-style: solid;
+	-fx-border-size: 1;
+}

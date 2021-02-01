@@ -1,0 +1,23 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.background {
+	-fx-background-color: #cfcfcf;
+}
+
+.canvasContainer {
+	-fx-background-color: #676767, white ;
+	-fx-background-insets: 0, 1 ;
+	-fx-padding: 1;
+}
+
+Button {
+	-fx-background-color: white;
+	-fx-border-style: dashed;
+	-fx-border-width: 2;
+	-fx-border-radius: 1;
+
+}
+
+Table {
+	-fx-alternative-row-fill-visible: true;
+
+}
