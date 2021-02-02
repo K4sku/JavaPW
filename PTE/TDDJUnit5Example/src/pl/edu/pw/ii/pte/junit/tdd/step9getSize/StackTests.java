@@ -3,6 +3,7 @@ package pl.edu.pw.ii.pte.junit.tdd.step9getSize;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -19,11 +20,25 @@ public class StackTests {
 
 		assertTrue(s.isEmpty());
 	}
+	
+	@Test
+	public void newlyCreatedStackHasDeclaredCapacity() {
+		Stack s = new Stack(5);
+		
+		assertEquals(5, s.getCapacity());
+		assertNotEquals(4, s.getCapacity());
+		assertTrue(s.isEmpty());
+		
+		Stack t = new Stack(0);
+		
+		assertEquals(0, t.getCapacity());
+		assertNotEquals(1, t.getCapacity());
+		assertTrue(t.isEmpty());
+	}
 
 	@Test
 	public void afterPushStackIsNoLongerEmpty() {
 		Stack s = new Stack();
-
 		s.push(1);
 
 		assertFalse(s.isEmpty());
@@ -39,16 +54,16 @@ public class StackTests {
 		assertTrue(s.isEmpty());
 	}
 
-//	@Test
-//	public void emptyStackThrowsOnPop() {
-//		assertThrows(
-//		EmptyStackException.class,
-//		()->{
-//			Stack s = new Stack();
-//			s.pop();
-//			}
-//		);
-//	}
+	@Test
+	public void emptyStackThrowsOnPop() {
+		assertThrows(
+		EmptyStackException.class,
+		()->{
+			Stack s = new Stack();
+			s.pop();
+			}
+		);
+	}
 
 	@Test
 	public void popReturnsWhatWasPushed() {
@@ -120,10 +135,39 @@ public class StackTests {
 	}
 	
 	@Test
-	public void stackCapacityIncreases() {
+	public void stackCapacityIncreasesByOneWithPush() {
 		Stack s = new Stack();
 		assertTrue(s.isEmpty());
+		assertEquals(0, s.getCapacity());
+		s.push(1);
+		assertEquals(1, s.getCapacity());		
+	}
+	
+	@Test
+	public void stackCapacityIncreasesByOneWithNoValue() {
+		Stack s = new Stack();
+		assertEquals(0, s.getCapacity());
+		s.increaseCapacity();
+		assertEquals(1, s.getCapacity());	
+	}
+	
+	@Test
+	public void stackCapacityIncreasesByDeclaredValue() {
+		Stack s = new Stack();
+		assertEquals(0, s.getCapacity());
+		s.increaseCapacity(4);
+		assertEquals(4, s.getCapacity());	
+	}
+	
+	@Test
+	public void stackCapacityDoesNotDecreaseWithPop() {
+		Stack s = new Stack(0);
+		s.push(1);
+		assertEquals(1, s.getCapacity());
+		s.pop();
+		assertEquals(1, s.getCapacity());
 		
 	}
+	
 
 }
