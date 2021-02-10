@@ -2,6 +2,6 @@ package model;
 
 public interface Calculation {
 
-    public String Calc(String[] args);
+    String Calc(String equation);
 
 }

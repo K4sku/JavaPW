@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>MoneyTestParameterized.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (8 lut 2021 22:03:46)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.moneyAssigment</a> &gt; <span class="el_source">MoneyTestParameterized.java</span></div><h1>MoneyTestParameterized.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.moneyAssigment;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+<span class="fc" id="L15">public class MoneyTestParameterized {</span>
+	@ParameterizedTest
+	@ValueSource(strings = {&quot;PLN&quot;, &quot;USD&quot;, &quot;EUR&quot;, &quot;CHF&quot;})
+	public void testSimpleAdd(String currency) {
+<span class="fc" id="L19">		Money m12curr = new Money(12_0000L, currency);</span>
+<span class="fc" id="L20">		Money m14curr = new Money(14_0000L, currency);</span>
+<span class="fc" id="L21">		Money expected = new Money(26_0000L, currency);</span>
+<span class="fc" id="L22">		Money result = m12curr.add(m14curr); </span>
+<span class="fc" id="L23">		assertTrue(expected.equals(result)); </span>
+<span class="fc" id="L24">	}</span>
+	
+	@ParameterizedTest
+	@CsvSource({
+		&quot;0, PLN, 0, USD, 0&quot;,
+		&quot;0, PLN, 10000, EUR, 45272&quot;,
+		&quot;1000000, CHF, 0, PLN, 1000000&quot;,
+		&quot;50000, EUR, 200000, USD, 214083&quot;,
+		&quot;200000, USD, 50000, EUR, 260944&quot;,
+		&quot;10000, USD, 10000, PLN, 12692&quot;
+	})
+	public void testSimpleAddWhenMismachedCurrency(
+			Long aVal, String aCurr, Long bVal, String bCurr, Long expectedVal
+			) {
+<span class="fc" id="L38">		Money a = new Money(aVal, aCurr);</span>
+<span class="fc" id="L39">		Money b = new Money(bVal, bCurr);</span>
+<span class="fc" id="L40">		Money expected = new Money(expectedVal, aCurr);</span>
+<span class="fc" id="L41">		Money result = a.add(b); </span>
+<span class="fc" id="L42">		assertTrue(expected.equals(result)); </span>
+<span class="fc" id="L43">	}</span>
+
+	@ParameterizedTest
+	@CsvSource({
+		&quot;0, PLN, 10000, EUR&quot;,
+		&quot;1000000, CHF, 0, PLN&quot;,
+		&quot;50000, EUR, 200000, USD&quot;,
+		&quot;200000, USD, 50000, EUR&quot;,
+		&quot;10000, USD, 10000, PLN&quot;
+	})
+	public void testEquals(
+			Long aVal, String aCurr, Long bVal, String bCurr
+			) {
+<span class="fc" id="L56">		Money a = new Money(aVal, aCurr);</span>
+<span class="fc" id="L57">		Money b = new Money(bVal, bCurr);</span>
+<span class="fc" id="L58">		Money oa = new Money(0L, aCurr);</span>
+<span class="fc" id="L59">		Money ob = new Money(0L, bCurr);</span>
+		
+<span class="fc" id="L61">		assertFalse(a.equals(null));</span>
+<span class="fc" id="L62">		assertEquals(a, a);</span>
+<span class="fc" id="L63">		assertEquals(oa, ob);</span>
+<span class="fc" id="L64">		assertEquals(b, new Money(bVal, bCurr));</span>
+<span class="fc" id="L65">		assertFalse(a.equals(b));</span>
+<span class="fc" id="L66">	}</span>
+	
+	@ParameterizedTest
+	@CsvSource({
+		&quot;0, PLN, 0, EUR&quot;,
+		&quot;1000000, CHF, 4185500, PLN&quot;,
+		&quot;50000, EUR, 60944, USD&quot;,
+		&quot;200000, USD, 164083, EUR&quot;,
+		&quot;10000, USD, 37142, PLN&quot;
+	})
+	public void testEqualsValueOfDifferentCurrencies(
+			Long aVal, String aCurr, Long bVal, String bCurr
+			) {
+<span class="fc" id="L79">		Money a = new Money(aVal, aCurr);</span>
+<span class="fc" id="L80">		Money b = new Money(bVal, bCurr);</span>
+<span class="fc" id="L81">		Money c = new Money(-10, &quot;PLN&quot;);</span>
+		
+<span class="fc" id="L83">		assertTrue(a.equals(b));</span>
+<span class="fc" id="L84">		assertFalse(a.equals(c));</span>
+<span class="fc" id="L85">	}</span>
+	
+	@ParameterizedTest
+	@CsvSource({
+		&quot;1000000, CHF, 2000000&quot;,
+		&quot;50000, EUR, 100000&quot;
+	})
+	public void testMultiply(Long aVal, String aCurr, Long expectedVal) {
+<span class="fc" id="L93">		Money a = new Money(aVal, aCurr);</span>
+<span class="fc" id="L94">		Money expected = new Money(expectedVal, aCurr);</span>
+<span class="fc" id="L95">		assertEquals(a.multiplyCurrency(0), new Money(0L, aCurr));</span>
+<span class="fc" id="L96">		assertEquals(a.multiplyCurrency(2), expected);</span>
+<span class="fc" id="L97">		assertFalse(a.multiplyCurrency(3).equals(expected));</span>
+		
+<span class="fc" id="L99">	}</span>
+	
+	@ParameterizedTest
+	@CsvSource({
+		&quot;0, PLN, 0, USD, 0&quot;,
+		&quot;0, PLN, 10000, EUR, 45272&quot;,
+		&quot;1000000, CHF, 0, PLN, 1000000&quot;,
+		&quot;50000, EUR, 200000, USD, 214083&quot;,
+		&quot;200000, USD, 50000, EUR, 260944&quot;,
+		&quot;10000, USD, 10000, PLN, 12692&quot;
+	})
+	public void testAnyCurrencyAdd(
+			Long aVal, String aCurr, Long bVal, String bCurr, Long expectedVal
+			) {
+<span class="fc" id="L113">		Money a = new Money(aVal, aCurr);</span>
+<span class="fc" id="L114">		Money b = new Money(bVal, bCurr);</span>
+<span class="fc" id="L115">		Money expected = new Money(expectedVal, aCurr);</span>
+<span class="fc" id="L116">		Money result = a.addAnyCurrency(b); </span>
+<span class="fc" id="L117">		assertTrue(expected.equals(result)); </span>
+<span class="fc" id="L118">	}</span>
+	
+	@ParameterizedTest
+	@CsvSource({
+		&quot;10000, 20000, PLN&quot;,
+		&quot;20000, 40000, USD&quot;,
+		&quot;30000, 40000, EUR&quot;,
+		&quot;0, 10000, CHF&quot;
+	})
+	public void testCompareTo(
+			Long lowerVal, Long higherVal, String Curr
+			) {
+<span class="fc" id="L130">		Money lower = new Money(lowerVal, Curr);</span>
+<span class="fc" id="L131">		Money higher = new Money(higherVal, Curr);</span>
+
+<span class="fc" id="L133">		assertEquals(higher.compareTo(higher), 0);</span>
+<span class="fc" id="L134">		assertTrue(higher.equals(higher));</span>
+<span class="fc" id="L135">		assertEquals(higher.compareTo(lower), 1);</span>
+<span class="fc" id="L136">		assertEquals(lower.compareTo(higher), -1);</span>
+	
+<span class="fc" id="L138">		assertEquals(-(higher.compareTo(lower)), lower.compareTo(higher));</span>
+		
+<span class="fc" id="L140">	}</span>
+	
+	@ParameterizedTest
+	@CsvSource({
+		&quot;0, PLN, 10000, EUR&quot;,
+		&quot;10000, CHF, 10000000000, PLN&quot;,
+		&quot;50000, EUR, 200000, USD&quot;,
+		&quot;10000, USD, 5000000, CHF&quot;
+	})
+	public void testCompareToMixedCurrencies(
+			Long lowerVal, String lowerCurr, Long higherVal, String higherCurr
+			) {
+<span class="fc" id="L152">		Money lower = new Money(lowerVal, higherCurr);</span>
+<span class="fc" id="L153">		Money higher = new Money(higherVal, lowerCurr);</span>
+
+<span class="fc" id="L155">		assertEquals(new Money(0, higherCurr).compareTo(new Money(0, lowerCurr)), 0);</span>
+<span class="fc" id="L156">		assertEquals(higher.compareTo(lower), 1);</span>
+<span class="fc" id="L157">		assertEquals(lower.compareTo(higher), -1);</span>
+		
+<span class="fc" id="L159">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (8 lut 2021 22:03:46)</div></body></html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Employee.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (8 lut 2021 22:03:46)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.inheritance</a> &gt; <span class="el_source">Employee.java</span></div><h1>Employee.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.inheritance;
+
+/**
+ * This program demonstrates inheritance.
+ * @version 1.21 2004-02-21
+ * @author Cay Horstmann
+ * http://www.horstmann.com/corejava.html
+ */
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+public class Employee
+{
+   private String name;
+   private double salary;
+   private Date hireDay;
+
+<span class="nc" id="L19">   public Employee(String n, double s, int year, int month, int day)</span>
+   {
+<span class="nc" id="L21">      name = n;</span>
+<span class="nc" id="L22">      salary = s;</span>
+<span class="nc" id="L23">      GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);</span>
+<span class="nc" id="L24">      hireDay = calendar.getTime();</span>
+<span class="nc" id="L25">   }</span>
+
+   public String getName()
+   {
+<span class="nc" id="L29">      return name;</span>
+   }
+
+   public double getSalary()
+   {
+<span class="nc" id="L34">      return salary;</span>
+   }
+
+   public Date getHireDay()
+   {
+<span class="nc" id="L39">      return hireDay;</span>
+   }
+
+   public void raiseSalary(double byPercent)
+   {
+<span class="nc" id="L44">      double raise = salary * byPercent / 100;</span>
+<span class="nc" id="L45">      salary += raise;</span>
+<span class="nc" id="L46">   }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (8 lut 2021 22:03:46)</div></body></html>

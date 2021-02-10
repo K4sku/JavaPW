@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Stack.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">TDDJUnit5Example</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.tdd.step5</a> &gt; <span class="el_source">Stack.java</span></div><h1>Stack.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.tdd.step5;
+
+import java.util.EmptyStackException;
+
+<span class="nc" id="L5">public class Stack {</span>
+
+<span class="nc" id="L7">	private boolean empty = true;</span>
+
+	public boolean isEmpty() {
+<span class="nc" id="L10">		return empty;</span>
+	}
+
+	public void push(int i) {
+<span class="nc" id="L14">		empty = false;</span>
+<span class="nc" id="L15">	}</span>
+
+	public void pop() {
+<span class="nc bnc" id="L18" title="All 2 branches missed.">		if (empty) {</span>
+<span class="nc" id="L19">			throw new EmptyStackException();</span>
+		}
+<span class="nc" id="L21">		empty = true;</span>
+<span class="nc" id="L22">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>

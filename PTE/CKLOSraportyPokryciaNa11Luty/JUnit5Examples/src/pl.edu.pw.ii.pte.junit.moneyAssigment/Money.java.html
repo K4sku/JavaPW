@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Money.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.moneyAssigment</a> &gt; <span class="el_source">Money.java</span></div><h1>Money.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.moneyAssigment;
+
+import java.util.HashMap;
+
+class Money {
+	private long fAmount;
+	private String fCurrency;
+<span class="fc" id="L8">	private static HashMap&lt;String, Integer&gt; exchangeRate = new HashMap&lt;&gt;(); </span>
+
+<span class="fc" id="L10">	public Money(long amount, String currency) {</span>
+<span class="fc" id="L11">		fAmount = amount; //money is stored in notation: 12345 = 1.2345</span>
+<span class="fc" id="L12">		fCurrency = currency;</span>
+		
+<span class="fc" id="L14">		exchangeRate.put(&quot;PLN&quot;, 1_0000); </span>
+<span class="fc" id="L15">		exchangeRate.put(&quot;USD&quot;, 3_7142);</span>
+<span class="fc" id="L16">		exchangeRate.put(&quot;EUR&quot;, 4_5272);</span>
+<span class="fc" id="L17">		exchangeRate.put(&quot;CHF&quot;, 4_1855);</span>
+<span class="fc" id="L18">	}</span>
+
+	public long amount() {
+<span class="fc" id="L21">		return fAmount;</span>
+	}
+
+	public String currency() {
+<span class="fc" id="L25">		return fCurrency;</span>
+	}
+	
+	public Money addAnyCurrency(Money m) {
+<span class="fc" id="L29">		var val = (fAmount * Money.exchangeRate.get(fCurrency) + m.fAmount * Money.exchangeRate.get(m.fCurrency)) / Money.exchangeRate.get(fCurrency);</span>
+<span class="fc" id="L30">		return new Money(val, fCurrency);</span>
+	}
+
+	public Money add(Money m) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">		if (currency() == m.currency())	return new Money(amount() + m.amount(), currency());</span>
+<span class="fc" id="L35">		else return addAnyCurrency(m);</span>
+	}
+
+	public boolean equals(Object anObject) {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		if (anObject instanceof Money) {</span>
+<span class="fc" id="L40">			Money a = (Money) anObject;</span>
+<span class="fc bfc" id="L41" title="All 4 branches covered.">			if (a.currency().equals(currency()) &amp;&amp; amount() == a.amount()) return true;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">			if (!a.currency().equals(currency())) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">				return ((a.amount() * Money.exchangeRate.get(a.fCurrency)/1000_0000) == (amount() * Money.exchangeRate.get(fCurrency)/1000_0000));</span>
+			}
+		}
+<span class="fc" id="L46">		return false;</span>
+
+	}
+	
+	public int compareTo(Object anObject) {
+<span class="fc" id="L51">		Money a = (Money) anObject;</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">		if (equals(a)) return 0;</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		else if ((this.amount() * Money.exchangeRate.get(this.fCurrency)) &gt; (a.amount() * Money.exchangeRate.get(a.fCurrency))) return 1;</span>
+<span class="fc" id="L54">		else return -1;</span>
+
+	}
+	
+	public Money multiplyCurrency(int k) {
+<span class="fc" id="L59">		return new Money(amount() * k, currency());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>

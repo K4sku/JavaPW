@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>MoneyTest2.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:02:06)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.money</a> &gt; <span class="el_source">MoneyTest2.java</span></div><h1>MoneyTest2.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.money;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+<span class="nc" id="L11">public class MoneyTest2 {</span>
+	private Money m12CHF;
+	private Money m14CHF;
+
+	@BeforeEach
+	public void setUp() throws Exception {
+<span class="nc" id="L17">		m12CHF = new Money(12, &quot;CHF&quot;);</span>
+<span class="nc" id="L18">		m14CHF = new Money(14, &quot;CHF&quot;);</span>
+<span class="nc" id="L19">	}</span>
+
+	@AfterEach
+	public void tearDown() throws Exception {
+<span class="nc" id="L23">	}</span>
+
+	@Test
+	public void testSimpleAdd2() {
+<span class="nc" id="L27">		Money expected = new Money(26, &quot;CHF&quot;);</span>
+<span class="nc" id="L28">		Money result = m12CHF.add(m14CHF); //</span>
+<span class="nc" id="L29">		assertTrue(expected.equals(result)); //</span>
+<span class="nc" id="L30">	}</span>
+
+	@Test
+	public void testEquals2() {
+<span class="nc bnc" id="L34" title="All 2 branches missed.">		assertTrue(!m12CHF.equals(null));</span>
+<span class="nc" id="L35">		assertEquals(m12CHF, m12CHF);</span>
+<span class="nc" id="L36">		assertEquals(m12CHF, new Money(12, &quot;CHF&quot;));</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">		assertTrue(!m12CHF.equals(m14CHF));</span>
+<span class="nc" id="L38">	}</span>
+	
+	@Test
+	public void testMultiply() {
+<span class="nc" id="L42">		Money expected = new Money(24, &quot;CHF&quot;);</span>
+<span class="nc" id="L43">		assertEquals(m12CHF.multiplyCurrency(2), expected);</span>
+<span class="nc" id="L44">		assertEquals(m12CHF.multiplyCurrency(0), new Money(0, &quot;CHF&quot;));</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">		assertTrue(!m12CHF.multiplyCurrency(3).equals(expected));</span>
+		
+<span class="nc" id="L47">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:02:06)</div></body></html>

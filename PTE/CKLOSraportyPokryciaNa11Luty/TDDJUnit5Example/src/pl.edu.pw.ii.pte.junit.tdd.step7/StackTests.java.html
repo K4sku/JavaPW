@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>StackTests.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">TDDJUnit5Example</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.tdd.step7</a> &gt; <span class="el_source">StackTests.java</span></div><h1>StackTests.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.tdd.step7;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.EmptyStackException;
+
+<span class="nc" id="L11">public class StackTests {</span>
+
+	@Test
+	public void newlyCreatedStackIsEmpty() {
+<span class="nc" id="L15">		Stack s = new Stack();</span>
+
+<span class="nc" id="L17">		assertTrue(s.isEmpty());</span>
+<span class="nc" id="L18">	}</span>
+
+	@Test
+	public void afterPushStackIsNoLongerEmpty() {
+<span class="nc" id="L22">		Stack s = new Stack();</span>
+
+<span class="nc" id="L24">		s.push(1);</span>
+
+<span class="nc" id="L26">		assertFalse(s.isEmpty());</span>
+<span class="nc" id="L27">	}</span>
+
+	@Test
+	public void afterPushAndPopStackIsEmptyAgain() {
+<span class="nc" id="L31">		Stack s = new Stack();</span>
+
+<span class="nc" id="L33">		s.push(1);</span>
+<span class="nc" id="L34">		s.pop();</span>
+
+<span class="nc" id="L36">		assertTrue(s.isEmpty());</span>
+<span class="nc" id="L37">	}</span>
+
+	@Test
+	public void emptyStackThrowsOnPop() {
+<span class="nc" id="L41">		assertThrows(</span>
+<span class="nc" id="L42">		EmptyStackException.class,</span>
+<span class="nc" id="L43">		()-&gt;{</span>
+<span class="nc" id="L44">			Stack s = new Stack();</span>
+<span class="nc" id="L45">			s.pop();</span>
+<span class="nc" id="L46">			}</span>
+		);
+<span class="nc" id="L48">	}</span>
+
+	@Test
+	public void popReturnsWhatWasPushed() {
+<span class="nc" id="L52">		Stack s = new Stack();</span>
+
+<span class="nc" id="L54">		s.push(1234);</span>
+
+<span class="nc" id="L56">		assertEquals(1234, s.pop());</span>
+<span class="nc" id="L57">	}</span>
+
+	@Test
+	public void stackDoesNotBecomeEmptyWhenThereWasLessPopThanPush() {
+<span class="nc" id="L61">		Stack s = new Stack();</span>
+
+<span class="nc" id="L63">		s.push(1);</span>
+<span class="nc" id="L64">		s.push(2);</span>
+<span class="nc" id="L65">		s.pop();</span>
+
+<span class="nc" id="L67">		assertFalse(s.isEmpty());</span>
+<span class="nc" id="L68">	}</span>
+
+	@Test
+	public void lastPopReturnsFirstPushedValue() {
+//		Stack s = new Stack();
+//
+//		s.push(1);
+//		s.push(2);
+//		s.pop();
+//
+//		assertEquals(1, s.pop());
+<span class="nc" id="L79">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>

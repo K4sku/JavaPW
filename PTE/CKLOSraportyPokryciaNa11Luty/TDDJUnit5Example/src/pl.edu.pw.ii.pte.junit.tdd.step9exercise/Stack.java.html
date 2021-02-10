@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Stack.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">TDDJUnit5Example</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.tdd.step9exercise</a> &gt; <span class="el_source">Stack.java</span></div><h1>Stack.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.tdd.step9exercise;
+
+import java.nio.BufferOverflowException;
+import java.util.EmptyStackException;
+
+<span class="nc" id="L6">public class Stack {</span>
+
+	public static final int MAXIMUM_CAPACITY = 10;
+<span class="nc" id="L9">	private int size = 0;</span>
+<span class="nc" id="L10">	private int[] contents = new int[MAXIMUM_CAPACITY];</span>
+
+	public boolean isEmpty() {
+<span class="nc bnc" id="L13" title="All 2 branches missed.">		return size == 0;</span>
+	}
+
+	public void push(int i) {
+<span class="nc bnc" id="L17" title="All 2 branches missed.">		if (size == MAXIMUM_CAPACITY) {</span>
+<span class="nc" id="L18">			throw new BufferOverflowException();</span>
+		}
+<span class="nc" id="L20">		contents[size++] = i;</span>
+<span class="nc" id="L21">	}</span>
+
+	public int pop() {
+<span class="nc bnc" id="L24" title="All 2 branches missed.">		if (isEmpty()) {</span>
+<span class="nc" id="L25">			throw new EmptyStackException();</span>
+		}
+<span class="nc" id="L27">		return contents[--size];</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>

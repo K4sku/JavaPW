@@ -5,6 +5,13 @@
 	-fx-text-fill: white;
 }
 
+.answer {
+	-fx-background-color: #bcbcbc;
+	-fx-text-alignment: right;
+	-fx-font-weight: bold;
+	-fx-text-fill: #835500;
+}
+
 .grid {
 	
 }

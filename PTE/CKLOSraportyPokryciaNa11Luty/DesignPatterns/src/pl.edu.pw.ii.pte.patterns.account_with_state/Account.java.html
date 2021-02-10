@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">DesignPatterns</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.patterns.account_with_state</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.patterns.account_with_state;
+
+public class Account {
+
+<span class="fc" id="L5">	private int balance = 0; // suma kredyt�w</span>
+<span class="fc" id="L6">	private String owner = null; // w�a�ciciel</span>
+<span class="fc" id="L7">	private AccountState state = null; // rachunek nieaktywny</span>
+
+<span class="fc" id="L9">	public Account(String owner, int balance) {</span>
+
+<span class="fc" id="L11">		this.owner = owner;</span>
+<span class="fc" id="L12">		this.balance = balance;</span>
+<span class="fc" id="L13">		this.state = new AccountOpen(); // rachunek aktywny</span>
+<span class="fc" id="L14">	}</span>
+
+	public void credit(int amount) { // udzielenie kredytu zale�y od stanu
+<span class="fc" id="L17">		this.state.credit(this, amount);</span>
+<span class="fc" id="L18">	}</span>
+
+	public void close() { // zablokowanie konta
+<span class="fc" id="L21">		this.state = new AccountClosed();</span>
+<span class="fc" id="L22">	}</span>
+	
+	public void suspend() { // zawieszenie konta
+<span class="fc" id="L25">		this.state = new AccountSupended();</span>
+<span class="fc" id="L26">	}</span>
+
+	public void incBalance(int amount) {
+<span class="fc" id="L29">		this.balance += amount;</span>
+<span class="fc" id="L30">		System.out.println(balance);</span>
+<span class="fc" id="L31">	}</span>
+
+	public String getOwner() {
+<span class="fc" id="L34">		return owner;</span>
+	}
+	
+	public int getBalance() {
+<span class="fc" id="L38">		return balance;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AssertTests2.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.assertions</a> &gt; <span class="el_source">AssertTests2.java</span></div><h1>AssertTests2.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.assertions;
+
+import org.junit.Test;
+import org.junit.Assert;
+
+<span class="nc" id="L6">public class AssertTests2 {</span>
+	@Test
+	public void testAssertEquals() {
+<span class="nc" id="L9">		Assert.assertEquals(&quot;failure - strings are not equal&quot;, &quot;text&quot;, &quot;text&quot;);</span>
+<span class="nc" id="L10">	}</span>
+
+	@Test
+	public void testAssertEquals2() {
+<span class="nc" id="L14">		Assert.assertEquals(&quot;failure - strings are not equal&quot;, &quot;text1&quot;, &quot;text2&quot;);</span>
+<span class="nc" id="L15">	}</span>
+
+	@Test
+	public void testAssertArrayEquals() {
+<span class="nc" id="L19">		byte[] expected = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L20">		byte[] actual = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L21">		Assert.assertArrayEquals(&quot;failure - byte arrays not same&quot;, expected, actual);</span>
+<span class="nc" id="L22">	}</span>
+
+	@Test
+	public void testAssertArrayEquals2() {
+<span class="nc" id="L26">		byte[] expected = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L27">		byte[] actual = &quot;abcdef&quot;.getBytes();</span>
+<span class="nc" id="L28">		Assert.assertArrayEquals(&quot;failure - byte arrays not same&quot;, expected, actual);</span>
+<span class="nc" id="L29">	}</span>
+
+	@Test
+	public void testAssertArrayEquals3() {
+<span class="nc" id="L33">		byte[] expected = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L34">		byte[] actual = &quot;cdef&quot;.getBytes();</span>
+<span class="nc" id="L35">		Assert.assertArrayEquals(&quot;failure - byte arrays not same&quot;, expected, actual);</span>
+<span class="nc" id="L36">	}</span>
+
+	@Test
+	public void testAssertArrayEquals4() {
+<span class="nc" id="L40">		byte[] expected = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L41">		byte[] actual = &quot;abcf&quot;.getBytes();</span>
+<span class="nc" id="L42">		Assert.assertArrayEquals(&quot;failure - byte arrays not same&quot;, expected, actual);</span>
+<span class="nc" id="L43">	}</span>
+
+	@Test
+	public void testAssertArraySame() {
+<span class="nc" id="L47">		byte[] expected = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L48">		Assert.assertSame(expected, expected);</span>
+<span class="nc" id="L49">	}</span>
+
+	@Test
+	public void testAssertArraySame2() {
+<span class="nc" id="L53">		byte[] expected = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L54">		byte[] actual = &quot;abcd&quot;.getBytes();</span>
+<span class="nc" id="L55">		Assert.assertSame(expected, actual);</span>
+<span class="nc" id="L56">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>

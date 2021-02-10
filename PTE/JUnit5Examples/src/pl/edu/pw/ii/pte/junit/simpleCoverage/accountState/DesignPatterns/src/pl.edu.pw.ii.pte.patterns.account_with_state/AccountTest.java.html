@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AccountTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:02:06)</a> &gt; <a href="../../index.html" class="el_group">DesignPatterns</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.patterns.account_with_state</a> &gt; <span class="el_source">AccountTest.java</span></div><h1>AccountTest.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.patterns.account_with_state;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+<span class="fc" id="L10">public class AccountTest {</span>
+	Account a;
+	Account b;
+	
+	@BeforeEach
+	public void setUp() {
+<span class="fc" id="L16">		a = new Account(&quot;Ann&quot;, 0);</span>
+<span class="fc" id="L17">		b = new Account(&quot;Betty&quot;, 10);</span>
+<span class="fc" id="L18">	}</span>
+	
+	@AfterEach
+	public void tearDown() throws Exception {
+<span class="fc" id="L22">	}</span>
+	
+	@Test
+	public void testGetBalance() {
+<span class="fc" id="L26">		assertEquals(0, a.getBalance());</span>
+<span class="fc" id="L27">		assertEquals(10, b.getBalance());</span>
+<span class="fc" id="L28">	}</span>
+	
+	@Test
+	public void testCredit() {
+<span class="fc" id="L32">		a.credit(100);</span>
+<span class="fc" id="L33">		assertEquals(100, a.getBalance());</span>
+<span class="fc" id="L34">		a.credit(100);</span>
+<span class="fc" id="L35">		assertEquals(200, a.getBalance());</span>
+<span class="fc" id="L36">	}</span>
+	
+	@Test
+	public void testCreditOnSuspendedAccount() {
+<span class="fc" id="L40">		a.suspend();</span>
+<span class="fc" id="L41">		a.credit(100);</span>
+<span class="fc" id="L42">		assertEquals(10, a.getBalance());</span>
+<span class="fc" id="L43">		a.credit(100);</span>
+<span class="fc" id="L44">		assertEquals(20, a.getBalance());</span>
+<span class="fc" id="L45">	}</span>
+	
+	@Test
+	public void creditThrowsWhenTryingToCreditOnClosedAccount() {
+<span class="fc" id="L49">		a.close();</span>
+<span class="fc" id="L50">		assertThrows(</span>
+<span class="fc" id="L51">				IllegalStateException.class,()-&gt;{</span>
+<span class="nc" id="L52">				a.credit(1000);</span>
+<span class="nc" id="L53">			}</span>
+		);
+<span class="fc" id="L55">	}</span>
+	
+	@Test
+	public void testGetOwner() {
+<span class="fc" id="L59">		assertEquals(&quot;Ann&quot;, a.getOwner());</span>
+<span class="fc" id="L60">		assertEquals(&quot;Betty&quot;, b.getOwner());</span>
+<span class="fc" id="L61">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:02:06)</div></body></html>

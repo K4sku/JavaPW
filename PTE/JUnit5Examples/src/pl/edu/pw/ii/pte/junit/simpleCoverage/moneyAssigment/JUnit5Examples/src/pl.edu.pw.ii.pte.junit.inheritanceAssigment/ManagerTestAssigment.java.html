@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ManagerTestAssigment.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (8 lut 2021 22:03:46)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.inheritanceAssigment</a> &gt; <span class="el_source">ManagerTestAssigment.java</span></div><h1>ManagerTestAssigment.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.inheritanceAssigment;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+<span class="nc" id="L12">public class ManagerTestAssigment {</span>
+	Manager zeroMan;
+	Manager man;
+
+	@BeforeEach
+	public void setUp() {
+<span class="nc" id="L18">		zeroMan = new Manager(&quot;&quot;, 0, 0, 0, 0);</span>
+<span class="nc" id="L19">		man = new Manager(&quot;John Smith&quot;, 100000, 2019, 12, 30);</span>
+	
+<span class="nc" id="L21">	}</span>
+	
+	@AfterEach
+	public void tearDown() throws Exception {
+<span class="nc" id="L25">	}</span>
+	
+	@Test
+	public void testGetName() {
+<span class="nc" id="L29">		assertEquals(&quot;&quot;, zeroMan.getName());</span>
+<span class="nc" id="L30">		assertEquals(&quot;John Smith&quot;, man.getName());</span>
+<span class="nc" id="L31">	}</span>
+	
+	@Test
+	public void testGetHireDay() {
+<span class="nc" id="L35">		GregorianCalendar calendar = new GregorianCalendar(0, 0 - 1, 0);</span>
+<span class="nc" id="L36">		Date hireDay = calendar.getTime();</span>
+<span class="nc" id="L37">		assertEquals(hireDay, zeroMan.getHireDay());</span>
+			
+<span class="nc" id="L39">		calendar = new GregorianCalendar(2019, 12-1, 30);</span>
+<span class="nc" id="L40">		hireDay = calendar.getTime();	</span>
+<span class="nc" id="L41">		assertEquals(hireDay, man.getHireDay());</span>
+<span class="nc" id="L42">	}</span>
+	
+	@Test
+	public void testGetSalary()	{
+<span class="nc" id="L46">		assertEquals(0, zeroMan.getSalary());</span>
+<span class="nc" id="L47">		assertEquals(100000, man.getSalary());</span>
+<span class="nc" id="L48">	}</span>
+	
+	@Test
+	public void testSetBonus() {
+<span class="nc" id="L52">		zeroMan.setBonus(0);</span>
+<span class="nc" id="L53">		assertEquals(0, zeroMan.getSalary());</span>
+<span class="nc" id="L54">		zeroMan.setBonus(100);</span>
+<span class="nc" id="L55">		assertEquals(100, zeroMan.getSalary());</span>
+		
+<span class="nc" id="L57">		man.setBonus(0);</span>
+<span class="nc" id="L58">		assertEquals(100000, man.getSalary());</span>
+<span class="nc" id="L59">		man.setBonus(1000);</span>
+<span class="nc" id="L60">		assertEquals(101000, man.getSalary());</span>
+<span class="nc" id="L61">	}</span>
+	
+	@Test
+	public void testSetBonus2() {
+<span class="nc" id="L65">		zeroMan.setBonus(-100);</span>
+<span class="nc" id="L66">		assertEquals(-100, zeroMan.getSalary());</span>
+		
+<span class="nc" id="L68">		man.setBonus(-1000);</span>
+<span class="nc" id="L69">		assertEquals(99000, man.getSalary());</span>
+<span class="nc" id="L70">	}</span>
+	
+	@Test
+	public void testRaiseSalary() {      
+<span class="nc" id="L74">		zeroMan.raiseSalary(0);</span>
+<span class="nc" id="L75">		assertEquals(0, zeroMan.getSalary());</span>
+		
+<span class="nc" id="L77">		man.raiseSalary(0);</span>
+<span class="nc" id="L78">		assertEquals(100000, man.getSalary());</span>
+<span class="nc" id="L79">	}</span>
+	
+	@Test
+	public void testRaiseSalary2() {      
+<span class="nc" id="L83">		zeroMan.raiseSalary(0.1);</span>
+<span class="nc" id="L84">		assertEquals(0, zeroMan.getSalary());</span>
+		
+<span class="nc" id="L86">		man.raiseSalary(0.1);</span>
+<span class="nc" id="L87">		assertEquals(100100, man.getSalary());</span>
+<span class="nc" id="L88">	}</span>
+	
+	@Test
+	public void testRaiseSalary3() {      
+<span class="nc" id="L92">		zeroMan.raiseSalary(10);</span>
+<span class="nc" id="L93">		assertEquals(0, zeroMan.getSalary());</span>
+		
+<span class="nc" id="L95">		man.raiseSalary(10);</span>
+<span class="nc" id="L96">		assertEquals(110000, man.getSalary());</span>
+<span class="nc" id="L97">	}</span>
+	
+	@Test
+	public void testRaiseSalary4() {
+<span class="nc" id="L101">		zeroMan.raiseSalary(-10);</span>
+<span class="nc" id="L102">		assertEquals(0, zeroMan.getSalary());</span>
+		
+<span class="nc" id="L104">		man.raiseSalary(-10);</span>
+<span class="nc" id="L105">		assertEquals(90000, man.getSalary());</span>
+<span class="nc" id="L106">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (8 lut 2021 22:03:46)</div></body></html>

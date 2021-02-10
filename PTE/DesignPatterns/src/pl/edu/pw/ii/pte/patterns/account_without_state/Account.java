@@ -2,8 +2,8 @@ package pl.edu.pw.ii.pte.patterns.account_without_state;
 
 public class Account {
 
-	private int balance = 0; // suma kredytów
-	private String owner = null; // w³aœciciel
+	private int balance = 0; // suma kredytï¿½w
+	private String owner = null; // wï¿½aï¿½ciciel
 	private boolean isOpen = false; // rachunek nieaktywny
 
 	public Account(String owner, int balance) {
@@ -13,7 +13,7 @@ public class Account {
 		this.isOpen = true; // rachunek aktywny
 	}
 
-	public void credit(int amount) { // udzielenie kredytu zale¿y od stanu
+	public void credit(int amount) { // udzielenie kredytu zaleï¿½y od stanu
 		if (isOpen) {
 			this.balance += amount;
 			System.out.println(balance);
@@ -29,5 +29,9 @@ public class Account {
 	
 	public String getOwner() {
 		return owner;
+	}
+	
+	public int getBalance() {
+		return balance;
 	}
 }

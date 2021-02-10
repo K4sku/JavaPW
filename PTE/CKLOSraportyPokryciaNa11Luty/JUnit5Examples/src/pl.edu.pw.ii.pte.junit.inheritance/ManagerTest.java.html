@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ManagerTest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.inheritance</a> &gt; <span class="el_source">ManagerTest.java</span></div><h1>ManagerTest.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.inheritance;
+
+/**
+ * This program demonstrates inheritance.
+ * @version 1.21 2004-02-21
+ * @author Cay Horstmann
+ * http://www.horstmann.com/corejava.html
+ */
+<span class="nc" id="L9">public class ManagerTest</span>
+{
+   public static void main(String[] args)
+   {
+      // construct a Manager object
+<span class="nc" id="L14">      Manager boss = new Manager(&quot;Carl Cracker&quot;, 80000, 1987, 12, 15);</span>
+<span class="nc" id="L15">      boss.setBonus(5000);</span>
+
+<span class="nc" id="L17">      Employee[] staff = new Employee[3];</span>
+
+      // fill the staff array with Manager and Employee objects
+
+<span class="nc" id="L21">      staff[0] = boss;</span>
+<span class="nc" id="L22">      staff[1] = new Employee(&quot;Harry Hacker&quot;, 50000, 1989, 10, 1);</span>
+<span class="nc" id="L23">      staff[2] = new Employee(&quot;Tommy Tester&quot;, 40000, 1990, 3, 15);</span>
+
+      // print out information about all Employee objects
+<span class="nc bnc" id="L26" title="All 2 branches missed.">      for (Employee e : staff)</span>
+<span class="nc" id="L27">         System.out.println(&quot;name=&quot; + e.getName() + &quot;,salary=&quot; + e.getSalary());</span>
+<span class="nc" id="L28">   }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>

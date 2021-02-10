@@ -40,7 +40,7 @@ class Money {
 			Money a = (Money) anObject;
 			if (a.currency().equals(currency()) && amount() == a.amount()) return true;
 			if (!a.currency().equals(currency())) {
-				return (a.amount() * Money.exchangeRate.get(a.fCurrency) == amount() * Money.exchangeRate.get(fCurrency));
+				return ((a.amount() * Money.exchangeRate.get(a.fCurrency)/1000_0000) == (amount() * Money.exchangeRate.get(fCurrency)/1000_0000));
 			}
 		}
 		return false;
@@ -50,7 +50,7 @@ class Money {
 	public int compareTo(Object anObject) {
 		Money a = (Money) anObject;
 		if (equals(a)) return 0;
-		else if ((a.amount() * Money.exchangeRate.get(a.fCurrency) > amount() * Money.exchangeRate.get(fCurrency))) return 1;
+		else if ((this.amount() * Money.exchangeRate.get(this.fCurrency)) > (a.amount() * Money.exchangeRate.get(a.fCurrency))) return 1;
 		else return -1;
 
 	}

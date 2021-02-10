@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>SearchClass.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">Merged (9 lut 2021 18:04:56)</a> &gt; <a href="../../index.html" class="el_group">JUnit5Examples</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">pl.edu.pw.ii.pte.junit.searchEquivalencePartition</a> &gt; <span class="el_source">SearchClass.java</span></div><h1>SearchClass.java</h1><pre class="source lang-java linenums">package pl.edu.pw.ii.pte.junit.searchEquivalencePartition;
+
+import java.util.*;
+
+<span class="nc" id="L5">public class SearchClass {</span>
+
+	public void fill_in(int tab[]) {
+<span class="nc" id="L8">		Random randomGenerator = new Random();</span>
+<span class="nc bnc" id="L9" title="All 2 branches missed.">		for (int k = 0; k &lt; tab.length; k++) {</span>
+<span class="nc" id="L10">			tab[k] = randomGenerator.nextInt(100 * tab.length);</span>
+		}
+<span class="nc" id="L12">	}</span>
+
+	public void print(int tab[]) {
+<span class="nc bnc" id="L15" title="All 2 branches missed.">		for (int k = 0; k &lt; tab.length; k++) {</span>
+<span class="nc" id="L16">			System.out.println(tab[k]);</span>
+		}
+<span class="nc" id="L18">	}</span>
+
+	public int search(int tab[], int key) {
+<span class="nc bnc" id="L21" title="All 2 branches missed.">		for (int i = 0; i &lt; tab.length; i++) {</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">			if (tab[i] == key)</span>
+<span class="nc" id="L23">				return i;</span>
+		}
+<span class="nc" id="L25">		return -1;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span>Merged (9 lut 2021 18:04:56)</div></body></html>
