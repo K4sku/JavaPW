@@ -12,12 +12,10 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 
 public class Main extends Application {
-	private Stage primaryStage;
 	public static final String appName = "Sockets-JavaFX-MVC";
 	
 	@Override
 	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;
 		ViewLoader<AnchorPane, ChatController> viewLoader = new ViewLoader<>("Chat.fxml");
 		viewLoader.getController().setUserName(getUserName());
 		viewLoader.getController().setHost("localhost");

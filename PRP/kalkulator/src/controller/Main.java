@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import model.Calc;
 
 public class Main extends Application {
 	private Stage primaryStage;
@@ -30,6 +31,7 @@ public class Main extends Application {
 			MainWindowController mainWindowController = loader.getController();
 			mainWindowController.setMain(this);
 			mainWindowController.setPrimaryStage(primaryStage);
+			mainWindowController.setCalc(new Calc());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (IOException e) {

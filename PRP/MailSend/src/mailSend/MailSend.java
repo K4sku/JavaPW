@@ -19,7 +19,7 @@ public class MailSend {
 
         String sender = "cezary.klos.mail@gmail.com";
         String recipient = "cezary.klos.mail@gmail.com";
-        sendTextMessage(session, sender, recipient, "Text message", "Have a good day :)");
+        sendTextMessage(session, sender, recipient, "Nowa wiadomość", "Have a good day :)");
         sendHTMLMessage(session, sender, recipient, "HTML message", "<h1>Have a good day :)</h1>");
         sendAttachmentMessage(session, sender, recipient, "Attachment message", "Have a good day", "G:\\MiecioLiza.png");
     }

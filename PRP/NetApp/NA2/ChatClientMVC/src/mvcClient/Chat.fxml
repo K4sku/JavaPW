@@ -38,5 +38,10 @@
          <image>
             <Image url="@../../res/send.png" />
          </image></ImageView>
+      <ImageView fx:id="attachImageImageView" fitHeight="25.0" fitWidth="25.0" layoutX="411.0" layoutY="517.0" onMouseReleased="#attachImageImageView_MouseReleased" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../res/attach.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

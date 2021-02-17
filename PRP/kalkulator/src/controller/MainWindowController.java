@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.Calc;
+import model.Calculation;
 
 
 public class MainWindowController {
@@ -20,7 +21,7 @@ public class MainWindowController {
 	private String result;
 	private StringBuilder equationBuldier = new StringBuilder();
 	private StringProperty displayedString;
-	private Calc calc = new Calc();
+	private Calculation calc = new Calc();
 
 	@FXML private TextField display;
 	@FXML private GridPane keyboard;
@@ -46,6 +47,11 @@ public class MainWindowController {
 	@FXML private Button add;
 	@FXML private Button solve;
 	@FXML private Button div2;
+
+	public void setCalc(Calculation a) {
+		calc = a;
+
+	}
 
 	@FXML
 	public void initialize() {

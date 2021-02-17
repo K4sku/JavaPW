@@ -26,11 +26,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class ChatController implements AutoCloseable {
-	private Main main;
-	private Stage primaryStage;
 
     @FXML
     private Label welcomeLabel;
@@ -43,6 +42,8 @@ public class ChatController implements AutoCloseable {
     Circle circleImage;
     @FXML
     ImageView sendImageView;
+    @FXML
+    ImageView attachImageImageView;
 
     private String userName = "";
     private String senderName ="";
@@ -54,8 +55,9 @@ public class ChatController implements AutoCloseable {
     private PrintWriter outputPrintWriter;
     private final int PROTOCOL_PREFIX_LENGTH = 3;
     private Document messagesLayout;
+    final FileChooser fileChooser = new FileChooser();
+
     
-//    private Task<Void> task;
     
     @FXML
     private void initialize() {
@@ -73,6 +75,7 @@ public class ChatController implements AutoCloseable {
     	webViewMessages.getEngine().setUserStyleSheetLocation(
     			getClass().getResource("application.css").toString()
     			);
+    	
     }
     
     private String recieveMessage() throws IOException {
@@ -132,6 +135,24 @@ public class ChatController implements AutoCloseable {
 	    showMessage(toHTML(messageTextField.getText(), "request"));
 	    messageTextField.clear();
     }
+    
+    @FXML
+    private void attachImageImageView_MouseReleased() {
+    	configureFileChooser(fileChooser);
+        File file = fileChooser.showOpenDialog((Stage) attachImageImageView.getScene().getWindow());
+        if (file != null) {
+        	sendMessage(file.toString());
+        }
+    }
+    
+    private static void configureFileChooser(
+            final FileChooser fileChooser) {      
+                fileChooser.setTitle("Select Picture");              
+                fileChooser.getExtensionFilters().addAll(
+                    new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                    new FileChooser.ExtensionFilter("PNG", "*.png")
+                );
+        }
 
     @FXML
     private void messageTextField_KeyPressed(KeyEvent e) {
@@ -174,15 +195,6 @@ public class ChatController implements AutoCloseable {
     	return msg.substring(param[0].length() + 1);
 	}
     
-    
-    
-    public void setMain(Main main) {
-    	this.main = main;
-    }
-    
-	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-	}
 
 	@Override
 	public void close() throws Exception {
