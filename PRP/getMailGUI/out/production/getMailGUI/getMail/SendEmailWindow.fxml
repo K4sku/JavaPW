@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="getMail.SendEmailController">
+    <children>
+        <VBox layoutX="14.0" layoutY="14.0" prefHeight="350.0" prefWidth="580.0" AnchorPane.bottomAnchor="40.0"
+              AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <children>
+                <TextField fx:id="toTextField" minHeight="48.0" prefHeight="48.0" promptText="To">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </TextField>
+                <Separator prefWidth="200.0"/>
+                <TextField fx:id="subjectTextField" minHeight="48.0" prefHeight="48.0" promptText="Subject">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </TextField>
+                <Separator prefWidth="200.0"/>
+                <HTMLEditor fx:id="htmlEditorInput"
+                            htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;"
+                            prefHeight="668.0" prefWidth="580.0"/>
+            </children>
+        </VBox>
+        <Button fx:id="sendBtn" mnemonicParsing="false" onAction="#sendEmail" text="Send" AnchorPane.bottomAnchor="10.0"
+                AnchorPane.rightAnchor="10.0"/>
+        <Button fx:id="closeBtn" layoutX="548.0" layoutY="375.0" mnemonicParsing="false" onAction="#closeWindow"
+                text="Close" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"/>
+        <Label fx:id="invalidEmailAddressLabel" alignment="CENTER_RIGHT" focusTraversable="false"
+               text="Invalid email address" textFill="RED" visible="false" AnchorPane.rightAnchor="20.0"
+               AnchorPane.topAnchor="25.0">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <Label fx:id="invalidSubjectLabel" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="460.0"
+               layoutY="35.0" text="Subject can not be empty" textFill="RED" visible="false"
+               AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

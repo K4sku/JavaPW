@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.WebView?>
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="getMail.AppController">
+    <children>
+        <AnchorPane prefHeight="69.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="newEmailBtn" disable="true" layoutX="14.0" layoutY="22.0" mnemonicParsing="false"
+                        onAction="#newEmailAction" text="New Email" textAlignment="CENTER" AnchorPane.leftAnchor="22.0"
+                        AnchorPane.topAnchor="22.0">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <VBox alignment="CENTER" layoutX="639.0" prefHeight="69.0" prefWidth="270.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox alignment="TOP_CENTER" prefHeight="55.0" prefWidth="900.0" spacing="10.0">
+                    <children>
+                        <TextField fx:id="userEmail" promptText="email@gmail.com" text="cezary.klos.mail@gmail.com">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </TextField>
+                        <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#loginAction" prefWidth="65.0"
+                                text="Login" textAlignment="CENTER">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <PasswordField fx:id="userPassword" promptText="password" text="0Ru2JYec9DEng9Gb">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </PasswordField>
+                        <Button fx:id="logoutBtn" disable="true" mnemonicParsing="false" onAction="#logoutAction"
+                                prefWidth="65.0" text="Logout" textAlignment="CENTER">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+            <padding>
+                <Insets bottom="3.0" top="5.0"/>
+            </padding>
+        </VBox>
+        <SplitPane dividerPositions="0.24610244988864144" prefHeight="160.0" prefWidth="200.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="70.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                    <children>
+                        <TreeView fx:id="folderTreeView" prefHeight="200.0" prefWidth="200.0"
+                                  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                  AnchorPane.topAnchor="0.0"/>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                    <children>
+                        <SplitPane dividerPositions="0.6" layoutX="1.0" orientation="VERTICAL" prefHeight="643.0"
+                                   prefWidth="626.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0"
+                                   AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <TableView fx:id="messageSelectionTable" layoutX="220.0" layoutY="52.0"
+                                                   prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"
+                                                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                                   AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn fx:id="senderColumn" prefWidth="135.0" text="Sender"/>
+                                                <TableColumn fx:id="subjectColumn" prefWidth="452.0" text="Subject"/>
+                                                <TableColumn fx:id="receivedColumn" minWidth="0.0" prefWidth="84.0"
+                                                             text="Received"/>
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0">
+                                    <children>
+                                        <WebView fx:id="messageDisplayWebView" prefHeight="200.0" prefWidth="200.0"
+                                                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
