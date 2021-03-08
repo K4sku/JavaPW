@@ -6,6 +6,7 @@
     "configurations": [
         {
             "type": "java",
+            "args": ["atj1"],
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
